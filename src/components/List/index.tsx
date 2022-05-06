@@ -4,18 +4,22 @@ import Item from './Item';
 import style from './List.module.scss';
 
 
+interface props{
+  tarefas : ITarefa[],
+  SelectedTask : (selectedTasks: ITarefa) => void
+}
 
 
-
-function List({tarefas} : {tarefas: ITarefa[]}) {
+function List({tarefas, SelectedTask} : props) {
 
   return (
     <aside className={style.listaTarefas}>
       <h2> Estudos do dia </h2>
       <ul>
-        {tarefas.map((item, index) => (
+        {tarefas.map(item => (
           <Item
-            key={index}
+            SelectedTask={SelectedTask}
+            key={item.id}
             {...item}
           />
         ))}
