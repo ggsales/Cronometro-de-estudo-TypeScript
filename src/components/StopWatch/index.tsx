@@ -18,6 +18,17 @@ export default function StopWatch({selected} : Props) {
     setTime(TimeForSeconds(selected.tempo));
    }
   },[selected])
+
+  function regressive(count: number = 0){
+    setTimeout(()=>{
+      if(count > 0){
+        setTime(count - 1);
+        return regressive(count - 1)
+      }
+      
+    }, 1000)
+  }
+
   return (
     <div className={style.cronometro}>
       <p className={style.titulo}>Escolha um card e inicie o Cronômetro</p>
@@ -25,6 +36,7 @@ export default function StopWatch({selected} : Props) {
         <Watch time={time} />
       </div>
       <Button
+      onClick={()=> regressive(time) }
       texto="Começar!"
       />    
       </div>
