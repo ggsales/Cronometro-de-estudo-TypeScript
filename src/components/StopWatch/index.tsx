@@ -7,10 +7,11 @@ import { useEffect, useState } from "react";
 
 
 interface Props{
-  selected : ITarefa | undefined
+  selected : ITarefa | undefined,
+  endTask: () => void
 }
 
-export default function StopWatch({selected} : Props) {
+export default function StopWatch({selected, endTask} : Props) {
   const [time, setTime] = useState<number>();
 
   useEffect(() =>{
@@ -25,7 +26,7 @@ export default function StopWatch({selected} : Props) {
         setTime(count - 1);
         return regressive(count - 1)
       }
-      
+      endTask()
     }, 1000)
   }
 
