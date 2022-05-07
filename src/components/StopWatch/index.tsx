@@ -38,7 +38,7 @@ export default function StopWatch({selected, endTask} : Props) {
       </div>
       <Button
       onClick={()=> regressive(time) }
-      texto="Começar!"
+      children="Começar!"
       />    
       </div>
   )
