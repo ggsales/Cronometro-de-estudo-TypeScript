@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ITarefa } from '../../types/tarefa';
 import Item from './Item';
 import style from './List.module.scss';
